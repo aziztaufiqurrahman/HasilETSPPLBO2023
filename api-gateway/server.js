@@ -48,10 +48,13 @@ const server = gateway({
 });
 
 server.get('/mytesting', (req,res)=> {
-    res.send("Gateway Called");
+    res.send("Gateway Called with GET method");
+})
+
+server.post('/mytesting', (req,res)=> {
+    res.send("Gateway Called with POST method");
 })
 
 server.start(port).then(server=>{
     console.log("Gateway is running "+port);
 })
-
