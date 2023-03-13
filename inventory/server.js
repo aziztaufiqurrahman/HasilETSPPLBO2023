@@ -27,6 +27,8 @@ let inventory = [
   }
 ];
 
+app.use(express.json()); // enable parsing of JSON data from request body
+
 // Endpoint GET
 app.get("/inventory", (req,res)=>{
     let response = {
@@ -58,7 +60,7 @@ app.post("/inventory", (req, res) => {
     stock: stock
   };
   inventory.push(newItem);
-
+  
   // Kirim response
   res.status(201).send(`Barang ${name} dengan ID ${id} berhasil ditambahkan ke dalam inventory.`);
 });

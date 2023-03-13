@@ -5,31 +5,33 @@ const port = 8087;
 
 app.use(express.json()); // enable JSON body parsing
 
+let kitchen = [ // define the kitchen array
+    {
+        id: 1,
+        name: 'Nasi Goreng',
+        status: 'done'
+    },
+    {
+        id: 2,
+        name: 'Mie Ayam',
+        status: 'in progress'
+    },
+    {
+        id: 3,
+        name: 'Sate Ayam',
+        status: 'not started'
+    },
+    {
+        id: 4,
+        name: 'Ayam Goreng',
+        status: 'done'
+    }
+];
+
 app.get("/kitchen", (req,res)=>{
     let response = {
         data: {
-            kitchen: [
-                {
-                    id: 1,
-                    name: 'Nasi Goreng',
-                    status: 'done'
-                },
-                {
-                    id: 2,
-                    name: 'Mie Ayam',
-                    status: 'in progress'
-                },
-                {
-                    id: 3,
-                    name: 'Sate Ayam',
-                    status: 'not started'
-                },
-                {
-                    id: 4,
-                    name: 'Ayam Goreng',
-                    status: 'done'
-                }
-            ]
+            kitchen: kitchen
         }
     };
     res.status(200).json(response);
